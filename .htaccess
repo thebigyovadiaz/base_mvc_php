@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+# Activar rewrite
+RewriteEngine on
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^(.*)/(.*) index.php?controller=$1&action=$2
+ErrorDocument 404 http://localhost/base-mvc-php/error/index
+</IfModule>

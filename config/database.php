@@ -1,10 +1,12 @@
 <?php
 
-class database{
+require_once 'parameters.php';
+
+class Database{
 	public static function connect(){
-		$conection = new mysqli("localhost", "root", "", "notas_master");
-		$conection->query("SET NAMES 'utf8'");
-		
-		return $conection;
+		$db = new mysqli(host, user, password, db_name);
+		$db->query("SET NAMES 'utf8'");
+		return $db;
 	}
 }
+
